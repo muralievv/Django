@@ -20,5 +20,7 @@ import product.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', product.views.index),
+    path('', product.views.home),
+    path('offers/', product.views.offers_list),
+    path('offers/<int:product_id>/', product.views.offer_detail),
 ]

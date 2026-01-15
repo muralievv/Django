@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% block content %}
+
+{% for product in products %}
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">name: {{product.title}}</h5>
+        <p class="card-text">description: {{product.description}}</p>
+        <p href="card-text">salary:{{product.salary}}</p>
+         <a href="/offers/{{product.id}}/" class="btn btn-primary">Откликнуться</a>
+    </div>
+</div>
+</div>
+{% endfor %}
+
+{% endblock content %}
