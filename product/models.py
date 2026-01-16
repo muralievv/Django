@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Product(models.Model):
+    photo = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     salary = models.IntegerField(default=0)
