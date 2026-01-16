@@ -3,7 +3,11 @@
 
 {% for product in products %}
 <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+    {% if product.photo %}
+    <img src="{{product.photo.url}}" class="card-img-top" alt="...">
+     {% else %} 
+       <img src="/static/Gemini_Generated_Image_ywp514ywp514ywp5.png" class="card-img-top" alt="...">
+    {% endif %}
     <div class="card-body">
         <h5 class="card-title">name: {{product.title}}</h5>
         <p class="card-text">description: {{product.description}}</p>
