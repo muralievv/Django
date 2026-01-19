@@ -1,11 +1,11 @@
 {% extends "home.html"%}
 {% block content %}
 
-<form method="POST"  action="" enctype="multipart/form-data">
+<form method="POST"  action="">
     {% csrf_token %}
     {{ form.as_p }}
    
-    <button type="submit">Create Offer</button>
+    <button type="submit">Register</button>
 </form>
 
 

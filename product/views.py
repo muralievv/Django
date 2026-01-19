@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product
 from .form import ProductForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -9,18 +10,18 @@ def home(request):
     if request.method == "GET":
      return render(request, 'home.html')
      
-
+@login_required(login_url="/login/")
 def offers_list(request):
     if request.method == "GET":
      products = Product.objects.all()
      return render(request, 'products/offers.html', context={"products": products})
-
+@login_required(login_url="/login/")
 def offer_detail(request, product_id):
     if request.method == "GET":
      product = Product.objects.filter(id=product_id).first()
      return render(request, "products/offer_detail.html", context={"product":product})
 
-
+@login_required(login_url="/login/")
 def offer_create(request):
     if request.method == "GET":
         form = ProductForm()

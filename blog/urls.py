@@ -19,11 +19,22 @@ from django.urls import path
 import product.views
 from django.conf import settings
 from django.conf.urls.static import static
+import product.views
+from users.views import register_view, login_view, logout_view
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', product.views.home),
-    path('offers/', product.views.offers_list),
-    path('offers/<int:product_id>/', product.views.offer_detail),
-    path('offer_create/', product.views.offer_create)
+user_patterns = [
+    path('register/', register_view, name='register'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'), 
+]
+
+urlpatterns = (
+    user_patterns +
+    [
+    path('admin/', admin.site.urls, name='admin'),
+    path('', product.views.home, name='home'),
+    path('offers/', product.views.offers_list, name='offers'),
+    path('offers/<int:product_id>/', product.views.offer_detail, name='offer_detail'),
+    path('offer_create/', product.views.offer_create, name='offer_create'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
