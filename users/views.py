@@ -38,7 +38,7 @@ def login_view(request):
                 })
     else:
         form = LoginForm()
-    return render(request, "users/login", context={"form": form})
+    return render(request, "users/login.htm", context={"form": form})
 
 @login_required(login_url="/login/")
 def logout_view(request):
