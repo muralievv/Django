@@ -1,6 +1,9 @@
 {% extends "home.html" %}
 {% block content %}
-
+<form method="GET"  action="" enctype="multipart/form-data">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
 {% for product in products %}
 <div class="card" style="width: 18rem;">
     {% if product.photo %}
@@ -11,7 +14,7 @@
     <div class="card-body">
         <h5 class="card-title">name: {{product.title}}</h5>
         <p class="card-text">description: {{product.description}}</p>
-        <p href="card-text">salary:{{product.salary}}</p>
+        <p href="card-text">price:{{product.price}}</p>
          <a href="/offers/{{product.id}}/" class="btn btn-primary">Откликнуться</a>
     </div>
 </div>
